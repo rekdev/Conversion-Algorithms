@@ -37,7 +37,3 @@ def bin_to_dec(bin):
         num += ((2**(len(intg)-1-i)) * int(intg[i]))
 
     return num
-
-
-print(dec_to_bin(580.970, 29))
-print(bin_to_dec("1001000100"))
