@@ -1,6 +1,3 @@
-import math as math
-
-
 def dec_to_bin(num, prec=32):
     bin = ""
     frac = num % 1
@@ -9,7 +6,7 @@ def dec_to_bin(num, prec=32):
     while num > 0:
         bin = ("0" if num % 2 == 0 else "1") + bin
 
-        num = math.trunc(num / 2)
+        num = num // 2
 
     if not frac == 0:
         bin += "."
