@@ -1,11 +1,15 @@
+import math as math
+
+
 def dec_to_bin(num, prec=32):
     bin = ""
     frac = num % 1
+    num = int(num)
 
     while num > 0:
         bin = ("0" if num % 2 == 0 else "1") + bin
 
-        num = num // 2
+        num = math.trunc(num / 2)
 
     if not frac == 0:
         bin += "."
@@ -21,8 +25,22 @@ def dec_to_bin(num, prec=32):
     return bin
 
 
-def bin_to_dec(bin: str):
-    pass
+def bin_to_dec(bin):
+    num = 0
+
+    if "." in bin:
+        intg, frac = bin.split(".")
+    else:
+        intg, frac = bin, None
+
+    intg = list(intg)
+    frac = list(frac) if not frac == None else frac
+
+    for i in range(len(intg) - 1, -1, -1):
+        num += ((2**(len(intg)-1-i)) * int(intg[i]))
+
+    return num
 
 
-print(dec_to_bin(580.976, 29))
+print(dec_to_bin(580.970, 29))
+print(bin_to_dec("1001000100"))
